@@ -1,0 +1,22 @@
+using System;
+namespace ConsoleApp1 {
+    class Program {
+        static void Main ( string[] args ) {
+            int num1, num2, result;
+            string line;
+            Console.Write("Insert first number: ");
+            line=Console.ReadLine();
+            num1 = int.Parse(line);
+            Console.Write("Insert second number: ");
+            line=Console.ReadLine();
+            num2 = int.Parse(line);
+            Console.WriteLine("The sum of " + num1 + " and " + num2 + " is " + (num1+num2));
+            Console.WriteLine("The substraction of " + num1 + " and " + num2 + " is " + (num1-num2));
+            Console.WriteLine("The multplication of " + num1 + " and " + num2 + " is " + (num1*num2));
+            Console.WriteLine("The division of " + num1 + " and " + num2 + " is " + (num1/num2));
+            Console.WriteLine("The modulus of " + num1 + " and " + num2 + " is " + (num1%num2));
+            Console.WriteLine("Press any key.");
+            Console.ReadLine();
+        }
+    }
+}

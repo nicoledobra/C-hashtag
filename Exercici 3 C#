@@ -9,7 +9,7 @@ namespace Console3 {
             Console.Write("How old are you? ");
             line=Console.ReadLine();
             age = int.Parse(line);
-            Console.WriteLine("Welcome Codelearn! You are " + age + " years old.");
+            Console.WriteLine("Welcome " + name + "!" + " You are " + age + " years old.");
             Console.WriteLine("Press any key.");
             Console.ReadLine();
         }

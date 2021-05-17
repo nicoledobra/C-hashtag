@@ -2,8 +2,8 @@ using System;
 namespace Console3 {
     class Program {
         static void Main ( string[] args ) {
-            int age, name;
-            string line;
+            int age;
+            string line, name;
             Console.Write("What's your name? ");
             name=Console.ReadLine();
             Console.Write("How old are you? ");

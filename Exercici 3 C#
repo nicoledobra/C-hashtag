@@ -1,0 +1,17 @@
+using System;
+namespace Console3 {
+    class Program {
+        static void Main ( string[] args ) {
+            int age, name;
+            string line;
+            Console.Write("What's your name? ");
+            name=Console.ReadLine();
+            Console.Write("How old are you? ");
+            line=Console.ReadLine();
+            age = int.Parse(line);
+            Console.WriteLine("Welcome Codelearn! You are " + age + " years old.");
+            Console.WriteLine("Press any key.");
+            Console.ReadLine();
+        }
+    }
+}

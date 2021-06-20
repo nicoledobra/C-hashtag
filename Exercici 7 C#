@@ -1,0 +1,25 @@
+using System;
+namespace Console4 {
+    class Program {
+        static void Main ( string[] args ) {
+          // write your code here
+          Scanner sc = new Scanner(System.in);
+          int um = 0;
+          int num;
+          Console.WriteLine("Insert a limit value: ");
+          num = sc.nextInt();
+          for (int i=0; i<=num; i++){
+            if(num!=0){
+              Console.WriteLine( um );
+              um ++;
+              num = sc.nextInt();
+              Console.WriteLine("Press any key.");
+              Console.ReadLine();
+            }
+            else{
+              Console.WriteLine("Sorry, this is an invalid value.");
+              Console.WriteLine("Press any key.");
+            }
+          }
+   }
+}

@@ -1,0 +1,43 @@
+using System;
+
+namespace ConsoleApp1 {
+	class Program {
+		public static void Main(string[] args)	{
+            int num1;
+            string line;
+            int result;
+            Console.Write("Insert an integer number:");
+            line = Console.ReadLine();
+            num1 = int.Parse(line);
+            result = Math.Abs(num1);
+            Console.WriteLine("Absolute value: " + result);
+            Console.WriteLine("Power : " + Math.Pow(num1, 3));
+            Console.WriteLine("Square root: " + Math.Sqrt(num1));
+            Console.WriteLine("Sinus : " + Math.Sin(num1 * Math.PI / 180));
+            Console.WriteLine("Cosinus : " + Math.Cos(num1 * Math.PI / 180));
+            Console.WriteLine("Max between num and 50 : " + Math.Max(num1, 50));
+            Console.WriteLine("Min between num and 50 : " + Math.Min(num1, 50));
+            Console.WriteLine("Integer part : " + Math.Truncate(18.78));
+            Console.WriteLine("Round : " + Math.Round(18.78));
+            Console.Write("Press an key."); Console.ReadLine();
+		}
+	}
+}
+
+
+
+
+
+
+
+Insert an integer number:144
+Absolute value: 144
+Powe : 2985984
+Square root: 12
+Sinus : 0,587785252292473
+Cosinus : -0,809016994374947
+Max between num and 50 : 144
+Min between num and 50 : 50
+Integer part : 18
+Round : 19
+Press any key.

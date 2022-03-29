@@ -1,0 +1,22 @@
+using System;
+
+namespace exercici_14
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            int a;
+            int b;
+            Console.Write("Insert first number: ");
+            a = int.Parse(Console.ReadLine());
+            Console.Write("Insert second number: ");
+            b = int.Parse(Console.ReadLine());
+            int total;
+            total = (a + b) * (a - b);
+            Console.WriteLine("The result of the operation is: {0:D5} " ,total );
+            Console.WriteLine("Press any key.");
+            Console.Read();
+        }
+    }
+}

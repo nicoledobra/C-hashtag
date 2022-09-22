@@ -1,0 +1,38 @@
+using System;
+class exercici54
+    {
+        static void Main(string[] args){
+            int a, b, c, min, max;
+            Console.Write("Insert first number: ");
+            a=int.Parse(Console.ReadLine());
+            Console.Write("Insert first number: ");
+            b=int.Parse(Console.ReadLine());
+            Console.Write("Insert first number: ");
+            c=int.Parse(Console.ReadLine());
+            if(a>b && a>c)
+            {
+                max=a;
+            }
+            if(b>a && b>c)
+            {
+                max=b;
+            }
+            if(c>b && c>a)
+            {
+                max=a;
+            }
+            if(a>b && c>b)
+            {
+                min=b;
+            }
+            if(a>c && b>c)
+            {
+                min=c;
+            }
+            if(b>a && c>a)
+            {
+                min=a;
+            }
+        Console.WriteLine("The max of the three values is ", max, "and the min is ", min);
+    }
+    }

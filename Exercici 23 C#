@@ -1,0 +1,17 @@
+using System;
+
+class Program {
+    static void Main(string[] args) {
+        int num, sum = 0;
+
+        do {
+            Console.Write("Insert the total number of elements to sum: ");
+            num = int.Parse(Console.ReadLine());
+            sum += num;
+        } while (num != 0);
+
+        Console.WriteLine("The generated number is: " + (num == 0 ? "cap" : num.ToString()));
+        Console.WriteLine("The sum of the 5 generated numbers is " + (sum - num));
+        Console.WriteLine("Press any key.");
+    }
+}

@@ -1,0 +1,30 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        string userInput = "";
+        while (userInput.Length < 10)
+        {
+            Console.Write("Insert a string of, at least, 10 characters: ");
+            userInput = Console.ReadLine();
+
+            if (userInput.Length < 10)
+            {
+                Console.WriteLine("The string must have at least 10 characters. Please try again.");
+            }
+        }
+
+        Console.WriteLine("The length of the string {0} is {1}", userInput, userInput.Length);
+        Console.WriteLine("The string {0} contains the substring na? {1}", userInput, userInput.Contains("na"));
+        Console.WriteLine("The result of replacing the character a for x in the string {0} is {1}", userInput, userInput.Replace("a", "x"));
+        Console.WriteLine(" The result of lowering all characters of the string {0} is {1}", userInput, userInput.ToLower());
+        Console.WriteLine("The result of uppering all characters of the string {0} is {1}", userInput, userInput.ToUpper());
+        Console.WriteLine("The result of removing 4 characters from the string {0} starting from index 2 is {1}", userInput, userInput.Remove(2, 4));
+        Console.WriteLine("The substring resulting from the string {0} starting from index 2 with length 4 is {1}", userInput, userInput.Substring(2, 4));
+
+        Console.WriteLine("Press any key to exit.");
+        Console.ReadKey();
+    }
+}

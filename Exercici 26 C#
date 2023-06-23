@@ -1,0 +1,27 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        Console.Write("Insert a text string: ");
+        string input = Console.ReadLine();
+        foreach (char c in input)
+        {
+            Console.WriteLine(c);
+        }
+
+        Console.WriteLine("Press any key.");
+        Console.ReadKey();
+    }
+}
+
+R:
+Insert a text string: hello
+h
+e
+l
+l
+o
+Press any key
+Press any key.

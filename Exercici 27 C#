@@ -1,0 +1,58 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        Console.Write("Insert a text string: ");
+        string input = Console.ReadLine();
+
+        int countA = 0;
+        int countE = 0;
+        int countI = 0;
+        int countO = 0;
+        int countU = 0;
+
+        foreach (char c in input)
+        {
+            char lowercaseChar = Char.ToLower(c);
+
+            switch (lowercaseChar)
+            {
+                case 'a':
+                    countA++;
+                    break;
+                case 'e':
+                    countE++;
+                    break;
+                case 'i':
+                    countI++;
+                    break;
+                case 'o':
+                    countO++;
+                    break;
+                case 'u':
+                    countU++;
+                    break;
+            }
+        }
+
+        Console.WriteLine($"The total number of A vowels in the string {input} is {countA}");
+        Console.WriteLine($"The total number of E vowels in the string {input} is {countE}");
+        Console.WriteLine($"The total number of I vowels in the string {input} is {countI}");
+        Console.WriteLine($"The total number of O vowels in the string {input} is {countO}");
+        Console.WriteLine($"The total number of U vowels in the string {input} is {countU}");
+
+        Console.WriteLine("Press any key.");
+        Console.ReadKey();
+    }
+}
+
+R:
+Insert a text string: Hello world! Here I am again, it's me Uta Bubble Red XD
+The total number of A vowels in the string Hello world! Here I am again, it's me Uta Bubble Red XD is 4
+The total number of E vowels in the string Hello world! Here I am again, it's me Uta Bubble Red XD is 6
+The total number of I vowels in the string Hello world! Here I am again, it's me Uta Bubble Red XD is 3
+The total number of O vowels in the string Hello world! Here I am again, it's me Uta Bubble Red XD is 2
+The total number of U vowels in the string Hello world! Here I am again, it's me Uta Bubble Red XD is 2
+Press any key.

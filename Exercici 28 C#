@@ -1,0 +1,37 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        Console.Write("Insert a natural number: ");
+        string input = Console.ReadLine();
+
+        int number;
+        while (!int.TryParse(input, out number) || number < 0)
+        {
+            Console.Write("Not a valid number. Insert a natural number: ");
+            input = Console.ReadLine();
+        }
+
+        int factorial = CalculateFactorial(number);
+
+        Console.WriteLine($"The factorial of {number} is {factorial}");
+        Console.WriteLine("Press any key.");
+        Console.ReadKey();
+    }
+
+    static int CalculateFactorial(int n)
+    {
+        if (n == 0)
+            return 1;
+
+        return n * CalculateFactorial(n - 1);
+    }
+}
+
+R:
+Insert a natural number: 0.6
+Not a valid number. Insert a natural number: 3
+The factorial of 3 is 6
+Press any key.

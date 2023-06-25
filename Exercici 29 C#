@@ -1,0 +1,75 @@
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        for (char c = 'A'; c <= 'Z'; c++)
+        {
+            Console.WriteLine(c);
+        }
+
+        for (char c = 'Z'; c >= 'A'; c--)
+        {
+            Console.WriteLine(c);
+        }
+
+        Console.WriteLine("Press any key.");
+        Console.ReadKey();
+    }
+}
+
+R:
+A
+B
+C
+D
+E
+F
+G
+H
+I
+J
+K
+L
+M
+N
+O
+P
+Q
+R
+S
+T
+U
+V
+W
+X
+Y
+Z
+Z
+Y
+X
+W
+V
+U
+T
+S
+R
+Q
+P
+O
+N
+M
+L
+K
+J
+I
+H
+G
+F
+E
+D
+C
+B
+A
+Press any key.

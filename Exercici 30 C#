@@ -1,0 +1,82 @@
+using System;
+
+namespace NumberGuessingGame
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            // Genera un número aleatori entre 0 i 50
+            Random random = new Random();
+            int randomNumber = random.Next(0, 51);
+
+            int attempts = 5;
+
+            Console.WriteLine("Insert an integer number from 0 to 50:");
+
+            while (attempts > 0)
+            {
+                // Llegeix el número introduït per l'usuari
+                int guessedNumber;
+                bool isValidNumber = int.TryParse(Console.ReadLine(), out guessedNumber);
+
+                if (isValidNumber)
+                {
+                    if (guessedNumber == randomNumber)
+                    {
+                        Console.WriteLine("Congrats! You have won the game.");
+                        break;
+                    }
+                    else if (guessedNumber < randomNumber)
+                    {
+                        Console.WriteLine("The random number is greater than " + guessedNumber);
+                    }
+                    else
+                    {
+                        Console.WriteLine("The random number is lower than " + guessedNumber);
+                    }
+
+                    attempts--;
+                }
+                else
+                {
+                    Console.WriteLine("Invalid input. Please enter an integer number.");
+                }
+
+                if (attempts > 0)
+                {
+                    Console.WriteLine("Insert an integer number from 0 to 50:");
+                }
+                else
+                {
+                    Console.WriteLine("Sorry! You have lost the game. The random number was " + randomNumber);
+                }
+            }
+
+            Console.WriteLine("Press any key to exit.");
+            Console.ReadKey();
+        }
+    }
+}
+
+R:
+Insert an integer number from 0 to 50: 1
+The random number is greater than 1
+Insert an integer number from 0 to 50: 2
+The random number is greater than 2
+Insert an integer number from 0 to 50: 3
+The random number is greater than 3
+Insert an integer number from 0 to 50: 4
+The random number is greater than 4
+Insert an integer number
+Sorry! You have lost the game. The random number was 49
+Press any key.
+Un altre exemple d'execució podria ser:
+
+Insert an integer number from 0 to 50: 10
+The random number is lower than 1
+Insert an integer number from 0 to 50: 2
+The random number is lower than 2
+Insert an integer number from 0 to 50: 1
+Congrats! You have won the game.
+Press any key.

@@ -1,0 +1,45 @@
+using System;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        int sum = 0;
+        int number;
+        bool isFirstNumber = true;
+
+        do
+        {
+            if (isFirstNumber)
+            {
+                Console.Write("Insert a number: ");
+                isFirstNumber = false;
+            }
+            else
+            {
+                Console.Write("Insert another number: ");
+            }
+
+            number = int.Parse(Console.ReadLine());
+
+            if (number <= 0)
+            {
+                break;
+            }
+
+            sum += number;
+        } while (true);
+
+        Console.WriteLine("The total sum of the given numbers is " + sum);
+        Console.WriteLine("Press any key.");
+        Console.ReadKey();
+    }
+}
+
+R:
+Insert a number: 1
+Insert another number: 5
+Insert another number: 3
+Insert another number: 0
+The total sum of the given numbers is 9
+Press any key.

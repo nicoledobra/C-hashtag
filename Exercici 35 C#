@@ -1,0 +1,71 @@
+using System;
+
+class Program
+{
+    public static int Maximum(int[] numbers)
+    {
+        int max = numbers[0];
+        for (int i = 1; i < numbers.Length; i++)
+        {
+            if (numbers[i] > max)
+            {
+                max = numbers[i];
+            }
+        }
+        return max;
+    }
+
+    public static int Minimum(int[] numbers)
+    {
+        int min = numbers[0];
+        for (int i = 1; i < numbers.Length; i++)
+        {
+            if (numbers[i] < min)
+            {
+                min = numbers[i];
+            }
+        }
+        return min;
+    }
+
+    static void Main(string[] args)
+    {
+        int[] values = new int[10];
+
+        for (int i = 0; i < 10; i++)
+        {
+            Console.Write("Insert integer value: ");
+            values[i] = int.Parse(Console.ReadLine());
+        }
+
+        int maximum = Maximum(values);
+        int minimum = Minimum(values);
+        Console.WriteLine("The maximum value of the given integers is " + maximum + " and the minimum is " + minimum);
+
+        Console.WriteLine("Press any key.");
+        Console.ReadKey();
+    }
+} 
+
+R:
+Insert integer value: 1
+Insert integer value: 2
+
+Insert integer value: 3
+
+Insert integer value: 4
+
+Insert integer value: 5
+
+Insert integer value: 6
+
+Insert integer value: 7
+
+Insert integer value: 8
+
+Insert integer value: 9
+
+Insert integer value: 10
+0
+The maximum value of the given integers is 10 and the minimum is 1
+Press any key.

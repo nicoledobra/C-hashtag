@@ -1,0 +1,41 @@
+using System;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        Console.Write("Insert text phrase: ");
+        string phrase = Console.ReadLine();
+
+        char[] characters = new char[phrase.Length];
+
+        for (int i = 0; i < phrase.Length; i++)
+        {
+            characters[i] = phrase[i];
+        }
+
+        Array.Reverse(characters);
+
+        foreach (char c in characters)
+        {
+            string repeatedChar = new string(c, 4);
+            Console.WriteLine(repeatedChar);
+        }
+
+        Console.WriteLine("Press any key.");
+        Console.ReadKey();
+    }
+}
+
+R:
+Insert text phrase: Codelearn
+nnnn
+rrrr
+aaaa
+eeee
+llll
+eeee
+dddd
+oooo
+CCCC
+Press any key.

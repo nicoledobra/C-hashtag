@@ -1,0 +1,48 @@
+using System;
+
+class Program
+{
+    public static double Average(int[] numbers)
+    {
+        int sum = 0;
+        foreach (int number in numbers)
+        {
+            sum += number;
+        }
+        return (double)sum / numbers.Length;
+    }
+
+    static void Main(string[] args)
+    {
+        int[] values = new int[10];
+
+        for (int i = 0; i < 10; i++)
+        {
+            Console.Write("Insert integer value: ");
+            values[i] = int.Parse(Console.ReadLine());
+        }
+
+        double average = Average(values);
+
+        Console.WriteLine("The average of the given integers is " + average.ToString("F1") + ".");
+        Console.WriteLine("Press any key.");
+        Console.ReadKey();
+    }
+}
+
+R:
+Insert integer value: 1
+Insert integer value: 2
+Insert integer value: 3
+
+Insert integer value: 4
+Insert integer value: 5
+
+Insert integer value: 6
+
+Insert integer value: 7
+Insert integer value: 8
+Insert integer value: 9
+Insert integer value: 10
+The average of the given integers is 5.5.
+Press any key.

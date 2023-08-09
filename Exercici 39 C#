@@ -1,0 +1,58 @@
+using System;
+
+namespace VectorSum
+{
+    class Program
+    {
+        static int[] ReadArray(int n)
+        {
+            int[] array = new int[n];
+            for (int i = 0; i < n; i++)
+            {
+                Console.Write("Insert integer number: ");
+                array[i] = Convert.ToInt32(Console.ReadLine());
+            }
+            return array;
+        }
+
+        static int[] SumArray(int[] v1, int[] v2)
+        {
+            int[] result = new int[v1.Length];
+            for (int i = 0; i < v1.Length; i++)
+            {
+                result[i] = v1[i] + v2[i];
+            }
+            return result;
+        }
+
+        static void ShowArray(int[] array)
+        {
+            Console.Write("[");
+            for (int i = 0; i < array.Length; i++)
+            {
+                Console.Write(array[i]);
+                if (i < array.Length - 1)
+                {
+                    Console.Write(", ");
+                }
+            }
+            Console.WriteLine("]");
+        }
+
+        static void Main(string[] args)
+        {
+            Console.Write("Insert total elements: ");
+            int n = Convert.ToInt32(Console.ReadLine());
+
+            int[] vector1 = ReadArray(n);
+            int[] vector2 = ReadArray(n);
+
+            int[] resultVector = SumArray(vector1, vector2);
+
+            ShowArray(resultVector);
+
+            Console.WriteLine("Press any key.");
+            Console.ReadKey();
+        }
+    }
+}

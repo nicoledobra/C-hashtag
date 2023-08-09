@@ -1,0 +1,39 @@
+using System;
+
+namespace ListDisplayExample
+{
+    class Program
+    {
+        static void ShowArray(int[] v)
+        {
+            Console.Write("[");
+            for (int i = 0; i < v.Length; i++)
+            {
+                Console.Write(v[i]);
+                if (i < v.Length - 1)
+                {
+                    Console.Write(", ");
+                }
+            }
+            Console.WriteLine("]");
+        }
+
+        static void Main(string[] args)
+        {
+            Console.Write("Insert total elements: ");
+            int totalElements = Convert.ToInt32(Console.ReadLine());
+            int[] integerValues = new int[totalElements];
+
+            for (int i = 0; i < totalElements; i++)
+            {
+                Console.Write("Insert integer value: ");
+                integerValues[i] = Convert.ToInt32(Console.ReadLine());
+            }
+
+            ShowArray(integerValues);
+
+            Console.WriteLine("Press any key.");
+            Console.ReadKey();
+        }
+    }
+}

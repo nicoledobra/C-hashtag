@@ -1,0 +1,31 @@
+using System;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        // Llegir càrrega de la rentadora
+        Console.WriteLine("Insert washingmachine charge: ");
+        double washingMachineCharge = double.Parse(Console.ReadLine());
+
+        // Llegir mida de la televisió
+        Console.WriteLine("Insert tv size: ");
+        int tvSize = int.Parse(Console.ReadLine());
+
+        // Crear electrodomèstic
+        ElectricalAppliance electricalAppliance = new ElectricalAppliance(100, 5);
+
+        // Crear rentadora
+        WashingMachine washingMachine = new WashingMachine(100, 5, washingMachineCharge);
+
+        // Crear televisió
+        TV tv = new TV(100, 5, tvSize);
+
+        // Imprimir informació i preus finals
+        Console.WriteLine("The electrical appliance final price is {0}", electricalAppliance.FinalPrice());
+        Console.WriteLine("The washing machine final price is {0}", washingMachine.FinalPrice());
+        Console.WriteLine("The television final price is {0}", tv.FinalPrice());
+
+        Console.ReadKey();
+    }
+}

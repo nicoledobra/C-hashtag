@@ -1,0 +1,137 @@
+Crea una nova classe Book que contingui els atributs: ISBN, title, author, pages. Caldrà crear els accessos (set i get) per cada atribut.
+
+Cal també crear un mètode showInfo() que mostri la informació relativa a un llibre en el següent format:
+
+"The book title with ISBN, written by author has pages number of pages."
+
+Cal crear un constructor parametritzat.
+
+Finalment, programa el mètode Main perquè demani un nombre n i, a continuació, llegeixi la informació de n llibres. FInalment, cal mostrar per pantalla el nom del llibre amb més pàgines.
+
+Uns exemples d'ús d'aquest programa podria ser:
+Insert number of books: 3
+Insert title of book: Book1
+Insert isbn of book: 123
+Insert author of book: Author1
+Insert number of pages of the book: 200
+Insert title of book: Book2
+Insert isbn of book: 321
+Insert author of book: Author2
+Insert number of pages of the book: 240
+Insert title of book: Book3
+Insert isbn of book: 231
+Insert author of book: Author3
+Insert number of pages of the book: 220
+The book Book2 with 321, written by Author2 has 240 number of pages.
+Press any key.
+
+code:
+
+using System;
+
+class Book
+{
+    private string ISBN;
+    private string title;
+    private string author;
+    private int pages;
+
+    public string GetISBN()
+    {
+        return ISBN;
+    }
+
+    public void SetISBN(string isbn)
+    {
+        ISBN = isbn;
+    }
+
+    public string GetTitle()
+    {
+        return title;
+    }
+
+    public void SetTitle(string bookTitle)
+    {
+        title = bookTitle;
+    }
+
+    public string GetAuthor()
+    {
+        return author;
+    }
+
+    public void SetAuthor(string bookAuthor)
+    {
+        author = bookAuthor;
+    }
+
+    public int GetPages()
+    {
+        return pages;
+    }
+
+    public void SetPages(int numberOfPages)
+    {
+        pages = numberOfPages;
+    }
+
+    public void ShowInfo()
+    {
+        Console.WriteLine($"The book {title} with {ISBN}, written by {author} has {pages} number of pages.");
+    }
+
+    public Book(string isbn, string bookTitle, string bookAuthor, int numberOfPages)
+    {
+        ISBN = isbn;
+        title = bookTitle;
+        author = bookAuthor;
+        pages = numberOfPages;
+    }
+}
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        Console.Write("Insert number of books: ");
+        int n = int.Parse(Console.ReadLine());
+
+        Book[] books = new Book[n];
+
+        for (int i = 0; i < n; i++)
+        {
+            Console.WriteLine($"Insert title of book {i + 1}: ");
+            string title = Console.ReadLine();
+
+            Console.WriteLine($"Insert isbn of book {i + 1}: ");
+            string isbn = Console.ReadLine();
+
+            Console.WriteLine($"Insert author of book {i + 1}: ");
+            string author = Console.ReadLine();
+
+            Console.WriteLine($"Insert number of pages of the book {i + 1}: ");
+            int pages = int.Parse(Console.ReadLine());
+
+            books[i] = new Book(isbn, title, author, pages);
+        }
+
+        Book bookWithMostPages = GetBookWithMostPages(books);
+        Console.WriteLine($"The book {bookWithMostPages.GetTitle()} with {bookWithMostPages.GetISBN()}, written by {bookWithMostPages.GetAuthor()} has {bookWithMostPages.GetPages()} number of pages.");
+    }
+
+    static Book GetBookWithMostPages(Book[] books)
+    {
+        Book maxPagesBook = books[0];
+
+        foreach (Book book in books)
+        {
+            if (book.GetPages() > maxPagesBook.GetPages())
+            {
+                maxPagesBook = book;
+            }
+        }
+
+        return maxPagesBook;
+    }
+}

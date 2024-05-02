@@ -1,0 +1,164 @@
+Dissenya un programa que permeti gestionar els treballadors d'una empresa. El programa ha de permetre llegir les dades de n treballadors (on n serà un valor que haurem llegit a l'inici del programa), i a continuació mostrar el sou de cada empleat.
+
+Per aconseguir això hauràs de definir una superclasse Employee, que contingui els atributs name (el nom de l'empleat), hours (el total d'hores que treballa l'empleat al mes), baseSalary (el salari base de l'empleat). Aquesta classe ha de tenir definits tots els acessos (gets i sets) i constructors parametritzats. A més, la classe ha de tenir un mètode calculateFinalSalary() que rebi com a paràmetre un nombre d'hores i retorni el total que se li ha de pagar a l'empleat. Si aquest nombre d'hores supera el nombre d'hores de l'atribut de l'empleat, caldrà sumar les hores extra a pagar (a un preu de 10.00 per cada hora extra). Aquest mètode s'ha de poder sobreescriure a les subclasses.
+
+A més, crea una nova classe Directive que hereti d'empleat. A més dels atributs anteriors, aquesta classe té un nou atribut extra, que serveix per emmagatzemar el valor amb el qual es pagaran les hores extra. Aquesta classe ha de tenir definits tots els acessos (gets i sets) i constructors parametritzats, així com la redefinició de la funció calculateFinalSalary(), utilitzant el valor de les hores extra que el directiu tingui assignat.
+
+Uns exemples d'ús d'aquest programa podrien ser:
+
+Insert number of employees: 2
+It is a Directive employee? (yes/no) no
+Insert employee name: Empl1
+Insert employee hours: 120
+Insert employee base salary: 1000.00
+It is a Directive employee? (yes/no) yes
+Insert employee name: Dir1
+Insert employee hours: 120
+Insert employee base salary: 1200.00
+Insert employee extra value: 5.00
+Insert total amount of hours for employee Empl1: 121
+The final salary of the employee Empl1 is 1010
+Insert total amount of hours for employee Dir1: 121
+The final salary of the employee Dir1 is 1205
+Press any key.
+
+code:
+
+using System;
+
+class Employee
+{
+    private string name;
+    private int hours;
+    private double baseSalary;
+
+    public string GetName()
+    {
+        return name;
+    }
+
+    public void SetName(string employeeName)
+    {
+        name = employeeName;
+    }
+
+    public int GetHours()
+    {
+        return hours;
+    }
+
+    public void SetHours(int employeeHours)
+    {
+        hours = employeeHours;
+    }
+
+    public double GetBaseSalary()
+    {
+        return baseSalary;
+    }
+
+    public void SetBaseSalary(double employeeBaseSalary)
+    {
+        baseSalary = employeeBaseSalary;
+    }
+
+    public virtual double CalculateFinalSalary(int totalHoursWorked)
+    {
+        double finalSalary = baseSalary;
+
+        if (totalHoursWorked > hours)
+        {
+            int extraHours = totalHoursWorked - hours;
+            finalSalary += extraHours * 10.00;
+        }
+
+        return finalSalary;
+    }
+
+    public Employee(string employeeName, int employeeHours, double employeeBaseSalary)
+    {
+        name = employeeName;
+        hours = employeeHours;
+        baseSalary = employeeBaseSalary;
+    }
+}
+
+class Directive : Employee
+{
+    private double extraValue;
+
+    public double GetExtraValue()
+    {
+        return extraValue;
+    }
+
+    public void SetExtraValue(double value)
+    {
+        extraValue = value;
+    }
+
+    public override double CalculateFinalSalary(int totalHoursWorked)
+    {
+        double finalSalary = base.CalculateFinalSalary(totalHoursWorked);
+
+        finalSalary += extraValue * (totalHoursWorked - GetHours());
+
+        return finalSalary;
+    }
+
+    public Directive(string employeeName, int employeeHours, double employeeBaseSalary, double value) 
+        : base(employeeName, employeeHours, employeeBaseSalary)
+    {
+        extraValue = value;
+    }
+}
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        Console.Write("Insert number of employees: ");
+        int n = int.Parse(Console.ReadLine());
+
+        Employee[] employees = new Employee[n];
+
+        for (int i = 0; i < n; i++)
+        {
+            Console.Write("It is a Directive employee? (yes/no) ");
+            string directiveInput = Console.ReadLine().ToLower();
+
+            Console.Write("Insert employee name: ");
+            string name = Console.ReadLine();
+
+            Console.Write("Insert employee hours: ");
+            int hours = int.Parse(Console.ReadLine());
+
+            Console.Write("Insert employee base salary: ");
+            double baseSalary = double.Parse(Console.ReadLine());
+
+            if (directiveInput == "yes")
+            {
+                Console.Write("Insert employee extra value: ");
+                double extraValue = double.Parse(Console.ReadLine());
+
+                employees[i] = new Directive(name, hours, baseSalary, extraValue);
+            }
+            else
+            {
+                employees[i] = new Employee(name, hours, baseSalary);
+            }
+        }
+
+        for (int i = 0; i < n; i++)
+        {
+            Console.Write($"Insert total amount of hours for employee {employees[i].GetName()}: ");
+            int totalHours = int.Parse(Console.ReadLine());
+            double finalSalary = employees[i].CalculateFinalSalary(totalHours);
+            Console.WriteLine($"The final salary of the employee {employees[i].GetName()} is {finalSalary}");
+        }
+
+        Console.WriteLine("Press any key to exit.");
+        Console.ReadKey();
+    }
+}
+

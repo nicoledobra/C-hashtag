@@ -1,0 +1,92 @@
+Dissenya un programa que permeti gestionar les cartes d'una baralla francesa. El programa ha d'iniciar una baralla de 52 cartes (automàticament) i, continuació mostrar 5 cartes de la baralla escollides a l'atzar.
+
+Per aconseguir tot això, caldrà que creis una classe Card, que tingui els atributs value (el valor de la carta) i la suite (el pal de la carta). Has de crear els accessos (get i set) i els constructors parametritzats.
+
+A continuació crea una nova classe Deck. Aquesta classe ha de tenir un atribut cards (un array de cartes) i tots els mètodes d'acces (get i set). El constructor no ha de rebre paràmetres i ha de generar la baralla de 52 cartes. També hi ha d'haver un mètode generateHand() que mostri per pantalla 5 cartes generades a l'atzar.
+
+Uns exemples d'ús d'aquest programa podrien ser:
+
+Card 1: J diamonds
+Card 2: 6 hearts
+Card 3: As hearts
+Card 4: 3 diamonds
+Card 5: Q spades
+Press any key.
+
+code:
+
+using System;
+using System.Collections.Generic;
+
+// Clase Card
+class Card
+{
+    public string Value { get; set; }
+    public string Suite { get; set; }
+
+    // Constructor parametrizado
+    public Card(string value, string suite)
+    {
+        Value = value;
+        Suite = suite;
+    }
+}
+
+// Clase Deck
+class Deck
+{
+    private List<Card> cards;
+
+    // Constructor sin parámetros para generar la baraja
+    public Deck()
+    {
+        string[] suites = { "hearts", "diamonds", "clubs", "spades" };
+        string[] values = { "2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "As" };
+        cards = new List<Card>();
+        foreach (string suite in suites)
+        {
+            foreach (string value in values)
+            {
+                cards.Add(new Card(value, suite));
+            }
+        }
+    }
+
+    // Método para mostrar 5 cartas aleatorias
+    public void GenerateHand()
+    {
+        Random random = new Random();
+        Console.WriteLine("Your hand:");
+        for (int i = 0; i < 5; i++)
+        {
+            int randomIndex = random.Next(cards.Count);
+            Card card = cards[randomIndex];
+            Console.WriteLine($"Card {i + 1}: {card.Value} {card.Suite}");
+        }
+    }
+
+    // Getter para obtener las cartas (solo para propósitos de prueba, no se recomienda su uso en producción)
+    public List<Card> GetCards()
+    {
+        return cards;
+    }
+
+    // Setter para establecer las cartas (solo para propósitos de prueba, no se recomienda su uso en producción)
+    public void SetCards(List<Card> cards)
+    {
+        this.cards = cards;
+    }
+}
+
+// Clase principal que ejecuta el programa
+class Program
+{
+    static void Main(string[] args)
+    {
+        // Crear una baraja
+        Deck deck = new Deck();
+
+        // Mostrar 5 cartas aleatorias de la baraja
+        deck.GenerateHand();
+    }
+}
